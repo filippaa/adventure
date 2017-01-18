@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div>
+
 <?php
 /** Strings
  *	Formulär
@@ -147,3 +155,7 @@ elseif ($_GET['page'] == 11):
 <?php
 endif
 ?>
+
+</div>
+</body>
+</html>
