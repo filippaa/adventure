@@ -16,7 +16,7 @@
  */
 if ($_GET['player_name'] == NULL):
 ?>
-<form action="adventure_mall.php">
+<form action="index.php">
 	<label>Vad heter du?</label>
 	<input type="text" name="player_name">
 	<input type="hidden" name="page" value="1">
@@ -30,15 +30,23 @@ if ($_GET['player_name'] == NULL):
 elseif ($_GET['page'] == 1):
 ?>
 <h2>Hej <? echo $_GET['player_name'] ?></h2>
-<p>Du står i en skogsdunge. Till väster ser du en liten stuga med en rykande skorsten och österfrån rinner en liten flod. Norrut ser du bara träd.</p>
-<form action="adventure_mall.php">
+<p>Du vaknar upp helt ensam i en mörk  skog. Du vet inte var du är eller hur du hamnade där och nu måste du försöka ta dig hem. Till väster ser du en sjö med en liten strand och en lång brygga. Från stranden går det en stig till en gammal stuga som du kommer till om du går norrut. Bakom dig hör du ett knakande ljud, du måste snabbt bestämma dig vad du ska göra. </p>
+<img src="bilder/forest.jpg">
+<form action="index.php">
 	<label>Åt vilket håll går du?</label><br>
+
 	<input type="radio" name="page" value="2" id="west">
-	<label for="west">Väster</label><br>
+	<label for="west">Väster mot sjön</label><br>
+
 	<input type="radio" name="page" value="3" id="north">
-	<label for="north">Norr</label><br>
+	<label for="north">Norr till stugan</label><br>
+
 	<input type="radio" name="page" value="4" id="east">
-	<label for="east">Öster</label><br>
+	<label for="east">Öster,bara skog</label><br>
+
+	<input type="radio" name="page" value="5" id="south">
+	<label for="south">Söder, kanske det som låter är en människa som kan hjälpa dig? </label><br>
+
 	<input type="hidden" name="player_name" value="<?= $_GET['player_name'] ?>">
 	<input type="submit" value="Skicka">
 </form>
@@ -49,24 +57,93 @@ elseif ($_GET['page'] == 1):
  */
 elseif ($_GET['page'] == 2):
 ?>
+<h2>Sjön</h2>
+<p>Stupido</p>
+<img src="bilder/voor.jpg">
+
+
+<?php
+/** Om "page" inte var 1, kollar vi om den kanske är 2
+ *	I fall att detta stämmer visas den andra sidan
+ */
+elseif ($_GET['page'] == 3):
+?>
 <h2>Stugan</h2>
-<p>Det ser inte ut som att någon är hemma.</p>
-<img src="img/hut.jpg">
-<form action="adventure_mall.php">
+<p>Gå in, you know you want to</p>
+<img src="bilder/stuga.jpg">
+<form action="index.php">
 	<label>Åt vilket håll går du?</label><br>
-	<input type="radio" name="page" value="5" id="west">
-	<label for="west">Väster</label><br>
-	<input type="radio" name="page" value="6" id="north">
-	<label for="north">Norr</label><br>
-	<input type="radio" name="page" value="7" id="east">
-	<label for="east">Öster</label><br>
+
+	<input type="radio" name="page" value="8" id="inside">
+	<label for="inside">in</label><br>
+
 	<input type="hidden" name="player_name" value="<?= $_GET['player_name'] ?>">
 	<input type="submit" value="Skicka">
 </form>
 
 <?php
-/** Här tar elseif -satserna slut. Eftersom vi inte använder tecknen {} för att
- *	visa php var våra kodblock börjar och slutar behövs ett endif
+/** Om "page" inte var 1, kollar vi om den kanske är 2
+ *	I fall att detta stämmer visas den andra sidanHar du inte lärt dig ngt av livet, man går inte in i en övergiven stuga i skogen
  */
+elseif ($_GET['page'] == 4):
+?>
+<h2>Skog</h2>
+<p></p>
+<img src="bilder/forest.jpg">
+<form action="index.php">
+	<label>Åt vilket håll går du?</label><br>
+
+	<input type="radio" name="page" value="10" id="west">
+	<label for="west">Väster</label><br>
+
+	<input type="radio" name="page" value="11" id="north">
+	<label for="north">Norr</label><br>
+	
+	<input type="hidden" name="player_name" value="<?= $_GET['player_name'] ?>">
+	<input type="submit" value="Skicka">
+</form>
+
+<?php
+/** Om "page" inte var 1, kollar vi om den kanske är 2
+ *	I fall att detta stämmer visas den andra sidan
+ */
+elseif ($_GET['page'] == 5):
+?>
+<h2>idiot</h2>
+<p>du är nu extremt död</p>
+<img src="bilder/idiot.gif">
+
+<?php
+/** Om "page" inte var 1, kollar vi om den kanske är 2
+ *	I fall att detta stämmer visas den andra sidan
+ */
+elseif ($_GET['page'] == 8):
+?>
+<h2>inne i stugan</h2>
+<p>Har du inte lärt dig ngt av livet, man går inte in i en övergiven stuga i skogen</p>
+<img src="bilder/döden.gif">
+
+<?php
+/** Om "page" inte var 1, kollar vi om den kanske är 2
+ *	I fall att detta stämmer visas den andra sidanHar du inte lärt dig ngt av livet, man går inte in i en övergiven stuga i skogen
+ */
+elseif ($_GET['page'] == 10):
+?>
+<h2>Skog</h2>
+<p>väldigt död</p>
+<img src="bilder/dödskog.gif">
+
+<?php
+/** Om "page" inte var 1, kollar vi om den kanske är 2
+ *	I fall att detta stämmer visas den andra sidanHar du inte lärt dig ngt av livet, man går inte in i en övergiven stuga i skogen
+ */
+elseif ($_GET['page'] == 11):
+?>
+<h2>Skog</h2>
+<p>så död just nu</p>
+<img src="bilder/deathforest.gif">
+
+
+<?php
 endif
 ?>
